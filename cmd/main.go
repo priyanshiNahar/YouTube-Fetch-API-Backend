@@ -1,7 +1,7 @@
 package main
 
 import (
-	"YouTube-Fetch-API-Backend/internal"
+	"YourProjectName/internal" // Update with your actual module path
 	"log"
 	"net/http"
 
@@ -11,6 +11,7 @@ import (
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/videos/{page:[0-9]+}/{limit:[0-9]+}", internal.GetVideos).Methods("GET")
+	r.HandleFunc("/search", internal.SearchVideos).Methods("GET")
 
 	go internal.StartDataFetcher()
 
